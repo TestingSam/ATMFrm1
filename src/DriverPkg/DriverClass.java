@@ -66,7 +66,7 @@ public class DriverClass {
 	    DriverClass objExcelFile = new DriverClass();
 	    KeywordClass keywordClass= new KeywordClass();
 	    Class cls = keywordClass.getClass();
-	    Method[] methods = cls.getMethods();
+	 //   Method[] methods = cls.getMethods();
 	    String filePath = System.getProperty("user.dir")+"\\src\\Resources";
 	    objExcelFile.readExcel(filePath,"TestCase.xlsx","Sheet1");
 	    Iterator<String> itr= DriverClass.Keyword.iterator();
@@ -74,7 +74,7 @@ public class DriverClass {
 	    	String currentKeyword=itr.next();
 	    	System.out.println(currentKeyword);
 	    	Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), int.class); 
-			methodcall1.invoke(keywordClass, 19); 
+			methodcall1.invoke(keywordClass,90); 
 	    	}
 	    }
 
