@@ -41,7 +41,6 @@ public class DriverClass {
     for (int i = 1; i < rowCount+1; i++) {
         Row row = Sheet.getRow(i);
         for (int j = 0; j < row.getLastCellNum(); j++) {
-            //System.out.print(row.getCell(j).getStringCellValue()+"|| ");
         	switch(j) {
         	case 0:
         		StepNo.add(row.getCell(j).getStringCellValue());
