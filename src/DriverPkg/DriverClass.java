@@ -18,6 +18,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverClass {
 	public static List<String> StepNo= new ArrayList<>();
@@ -59,22 +61,25 @@ public class DriverClass {
         		break;
         	}
         }
-    } 
-    }  
-
+      } 
+    }
+    
     public static void main(String...strings) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
-	    DriverClass objExcelFile = new DriverClass();
-	    KeywordClass keywordClass= new KeywordClass();
+    	System.setProperty("webdriver.chrome.driver", "D:\\downloads\\chromedriver_win32\\chromedriver.exe");
+    	WebDriver driver;
+    	driver= new ChromeDriver();
+    	DriverClass objExcelFile = new DriverClass();
+	    KeywordClass keywordClass= new KeywordClass(driver);
 	    Class cls = keywordClass.getClass();
-	    Method[] methods = cls.getMethods();
+	    //Method[] methods = cls.getMethods();
 	    String filePath = System.getProperty("user.dir")+"\\src\\Resources";
 	    objExcelFile.readExcel(filePath,"TestCase.xlsx","Sheet1");
 	    Iterator<String> itr= DriverClass.Keyword.iterator();
 	    while(itr.hasNext()) {
 	    	String currentKeyword=itr.next();
 	    	System.out.println(currentKeyword);
-	    	Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), int.class); 
-			methodcall1.invoke(keywordClass, 19); 
+	    	Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class); 
+			methodcall1.invoke(keywordClass, "https://www.google.com/", "Sample"); 
 	    	}
 	    }
 
