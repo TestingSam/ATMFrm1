@@ -75,11 +75,13 @@ public class DriverClass {
 	    String filePath = System.getProperty("user.dir")+"\\src\\Resources";
 	    objExcelFile.readExcel(filePath,"TestCase.xlsx","Sheet1");
 	    Iterator<String> itr= DriverClass.Keyword.iterator();
-	    while(itr.hasNext()) {
+	    Iterator<String> itr1= DriverClass.TestData.iterator();
+	    while(itr.hasNext() && itr1.hasNext() ) {
 	    	String currentKeyword=itr.next();
 	    	System.out.println(currentKeyword);
+	    	String currentURL=itr1.next();
 	    	Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class); 
-			methodcall1.invoke(keywordClass, "https://www.google.com/", "Sample"); 
+			methodcall1.invoke(keywordClass, currentURL, "5000"); 
 	    	}
 	    }
 
