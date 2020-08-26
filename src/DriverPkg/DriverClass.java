@@ -83,6 +83,7 @@ public class DriverClass {
 	    	Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class); 
 			methodcall1.invoke(keywordClass, currentURL, "5000"); 
 	    	}
+	    driver.close();
 	    }
 
 }
