@@ -1,5 +1,7 @@
 package src.DriverPkg;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 
 public class KeywordClass {
@@ -17,11 +19,22 @@ public class KeywordClass {
 	public void explicitwait(String url, String thinktime) throws InterruptedException {
 		
 		System.out.println("URLCalled");
+		driver.manage().window().maximize();
 		driver.get(url);		
 		Thread.sleep(Integer.parseInt(thinktime));
 		System.out.println("ExplicitWaitcalled");
 	}
 	
+	//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+	
+	public void implicitwait(String url, String implicitwait) throws InterruptedException {
+		
+		System.out.println("URLCalled");
+		driver.manage().window().maximize();
+		driver.get(url);		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+		System.out.println("ImplicitWaitcalled");
+	}
 	/*public void CLICK(String value) {
 		System.out.println("Inside CLICK");
 	}
