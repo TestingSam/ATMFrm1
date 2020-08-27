@@ -12,13 +12,14 @@ public class KeywordClass {
 	}
 	
 	public void NavigateTo(String url, String thinktime) {
+		driver.manage().window().maximize();
 		driver.get(url);
 		System.out.println(thinktime);
 	}
 	
 	public void explicitwait(String url, String thinktime) throws InterruptedException {
 		
-		System.out.println("URLCalled");
+		System.out.println("Maximize and explicit wait called");
 		driver.manage().window().maximize();
 		driver.get(url);		
 		Thread.sleep(Integer.parseInt(thinktime));
@@ -29,7 +30,7 @@ public class KeywordClass {
 	
 	public void implicitwait(String url, String implicitwait) throws InterruptedException {
 		
-		System.out.println("URLCalled");
+		System.out.println("Maximize and Implicit wait called");
 		driver.manage().window().maximize();
 		driver.get(url);		
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
