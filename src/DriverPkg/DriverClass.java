@@ -7,8 +7,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
 
+import org.apache.commons.collections4.FactoryUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import org.apache.poi.ss.usermodel.Row;
@@ -18,6 +21,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -64,6 +69,10 @@ public class DriverClass {
       } 
     }
     
+   
+
+
+    
     public static void main(String...strings) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
     	System.setProperty("webdriver.chrome.driver", "D:\\downloads\\chromedriver_win32\\chromedriver.exe");
     	WebDriver driver;
@@ -76,15 +85,41 @@ public class DriverClass {
 	    String filePath = System.getProperty("user.dir")+"\\src\\Resources";
 	    objExcelFile.readExcel(filePath,"TestCase.xlsx","Sheet1");
 	    Iterator<String> itr= DriverClass.Keyword.iterator();
-	 //  Iterator<String> itr1= DriverClass.TestData.iterator();
-	    while(itr.hasNext()) {
-	    	for (String testdata : TestData) {
+	   Iterator<String> itr1= DriverClass.TestData.iterator();
+	   Iterator<String> itr2= DriverClass.ObjectIdentifier.iterator();
+	   
+//	    while(itr.hasNext()) {
+//	    	for (String testdata : TestData ){
+//	    		for( String Epath : ObjectIdentifier) {
+//	    		String currentKeyword=itr.next();
+//	    		System.out.println(currentKeyword);
+//	    		System.out.println(Epath);
+//	    		System.out.println(testdata);
+//	    		
+//	    		Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class); 
+//	    		methodcall1.invoke(keywordClass, Epath,testdata); 
+//	    	}
+//	    	}
+//	    }
+	    
+	    
+	    /**** lakshmi approach*******/
+	    
+	    while(itr.hasNext() && itr1.hasNext() && itr2.hasNext()) {
+	    	
 	    		String currentKeyword=itr.next();
+	    		String Epath=itr2.next();
+	    		String testdata=itr1.next();
+	    		
 	    		System.out.println(currentKeyword);
+	    		System.out.println(Epath);
+	    		System.out.println(testdata);
+	    		
 	    		Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class); 
-			methodcall1.invoke(keywordClass, testdata, "5000"); 
+	    		methodcall1.invoke(keywordClass, Epath,testdata); 
 	    	}
-	    }
+	    
+	    
 	    driver.close();
 	    }
 
