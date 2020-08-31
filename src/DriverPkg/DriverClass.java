@@ -86,7 +86,8 @@ public class DriverClass {
 	    objExcelFile.readExcel(filePath,"TestCase.xlsx","Sheet1");
 	    Iterator<String> itr= DriverClass.Keyword.iterator();
 	   Iterator<String> itr1= DriverClass.TestData.iterator();
-	   Iterator<String> itr2= DriverClass.ObjectIdentifier.iterator();
+	   Iterator<String> itr2= DriverClass.ObjectIdentifier.iterator();//Description
+	   Iterator<String> itr3= DriverClass.Description.iterator();
 	   
 //	    while(itr.hasNext()) {
 //	    	for (String testdata : TestData ){
@@ -110,13 +111,15 @@ public class DriverClass {
 	    		String currentKeyword=itr.next();
 	    		String Epath=itr2.next();
 	    		String testdata=itr1.next();
+	    		String Stepinfo=itr3.next();
 	    		
-	    		System.out.println(currentKeyword);
-	    		System.out.println(Epath);
-	    		System.out.println(testdata);
 	    		
-	    		Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class); 
-	    		methodcall1.invoke(keywordClass, Epath,testdata); 
+//	    		System.out.println(currentKeyword);
+//	    		System.out.println(Epath);
+//	    		System.out.println(testdata);
+	    		
+	    		Method methodcall1 = cls.getDeclaredMethod(currentKeyword.toString().trim(), String.class, String.class,String.class); 
+	    		methodcall1.invoke(keywordClass, Epath,testdata,Stepinfo); 
 	    	}
 	    
 	    
