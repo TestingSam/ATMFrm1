@@ -2,7 +2,7 @@ package src.DriverPkg;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
-
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -82,9 +82,10 @@ public class KeywordClass {
 
 		        File SrcFile=TS.getScreenshotAs(OutputType.FILE);
 
-		      
+		        //FileUtils.copyFile(SrcFile, new File("C:/selenium/error.png"));
 		        
-		     //   FileUtils.CopyFile(SrcFile, new File("D:\\downloads\\Screenshots\\SH.Jpeg"));
+		        
+		     FileUtils.copyFile(SrcFile, new File("D:\\downloads\\Screenshots\\SH.Jpeg"));
 	       }
 	       catch (Exception e) {
 	    	   throw(e);

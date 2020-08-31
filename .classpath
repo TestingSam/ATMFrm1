@@ -33,5 +33,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/downloads/commons-io-2.7/commons-io-2.7.jar"/>
+	<classpathentry kind="lib" path="D:/downloads/commons-io-2.7/commons-io-2.7-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/downloads/commons-io-2.7/commons-io-2.7-sources.jar"/>
+	<classpathentry kind="lib" path="D:/downloads/commons-io-2.7/commons-io-2.7-tests.jar"/>
+	<classpathentry kind="lib" path="D:/downloads/commons-io-2.7/commons-io-2.7-test-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
