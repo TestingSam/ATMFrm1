@@ -85,7 +85,7 @@ public class KeywordClass {
 		        //FileUtils.copyFile(SrcFile, new File("C:/selenium/error.png"));
 		        
 		        
-		     FileUtils.copyFile(SrcFile, new File("D:\\downloads\\Screenshots\\"+ Stepinfo+ System.currentTimeMillis() +".Jpeg"));
+		     FileUtils.copyFile(SrcFile, new File("C:\\downloads\\Screenshots\\"+ Stepinfo+ System.currentTimeMillis() +".Jpeg"));
 	       }
 	       catch (Exception e) {
 	    	   throw(e);
